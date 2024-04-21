@@ -1,0 +1,25 @@
+services:
+  java-backend:
+    container_name: java-backend
+    build: ./docker/java
+    volumes:
+      - ..:/work/backend:cached
+    command: sleep infinity
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+  
+  mysql:
+    container_name: java-backend-mysql
+    build: ./docker/mysql
+    env_file:
+      - ./docker/mysql/.env
+    ports:
+      - 3306:3306
+    volumes:
+      - spring-store:/var/lib/mysql
+
+volumes: 
+  spring-store:
+  spring-logs:

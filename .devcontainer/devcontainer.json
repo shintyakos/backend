@@ -1,0 +1,25 @@
+{
+	"name": "java-backend",
+	"dockerComposeFile": "./compose.yml",
+	"service": "java-backend",
+	"shutdownAction": "stopCompose",
+	"workspaceFolder": "/work/backend",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"editor.formatOnSave": true
+			},
+			"extensions": [
+				"mhutchie.git-graph",
+				"vscjava.vscode-gradle",
+				"mikestead.dotenv",
+				"cweijan.vscode-mysql-client2"
+			]
+		}
+	},
+	"otherPortsAttributes": {
+		"onAutoForward": "ignore"
+	},
+	"remoteUser": "vscode",
+	"postCreateCommand": "bash .devcontainer/createCommand.sh"
+}
